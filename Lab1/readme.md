@@ -3,9 +3,8 @@ Công nghệ : Tensor scalar: torch.tensor
 
 Cách hoạt động : 
 Tạo tensor x 1 giá trị 
-Tính hàm đa thức y theo đề bài
-Gọi y.backward() để PyTorch tự tính đạo hàm
-
+bài kêu tính hàm đa thức y theo đề bài
+gọi y.backward()  PyTorch là thư viện tự đạo hàm 
 Kết quả : 
 y'(3) = 1462.0
 Điểm dốc=0: x≈+0.3736, y' = -0.0005713701248168945
@@ -14,10 +13,8 @@ y'(3) = 1462.0
 Công nghệ : Autograd: requires_grad=True, backward(), grad
 
 Cách hoạt động : 
-Khởi tạo x = 2, alpha = 0.1, bật requires_grad=True
-Lặp 10 lần:
-Tính y = x^3 + 2x^2 + 5x + 1
-Cập nhật x = x - alpha * x.grad
+Khởi tạo x = 2, alpha = 0.1, bật requires_grad=True ( đùng để tính (đạo hàm) khi train model.
+Lặp 10 lần tính y = x^3 + 2x^2 + 5x + 1 và cập nhật x = x - alpha * x.grad
 In ra x và dy/dx sau mỗi vòng
 
 Kết quả : 
@@ -39,10 +36,9 @@ Công nghệ : Tạo dữ liệu ngẫu nhiên: torch.randint, torch.randn
 Cách hoạt động 
 x ngẫu nhiên
 y = 3x + 5 + noise
-tạo tham số w và b ngẫu nhiên 
-Train 100 
+tạo tham số w và b ngẫu nhiên Train 100 vòng lặp 
 Dự đoán 
-In loss và giá trị w, b theo epoch
+In loss và giá trị w, b theo epoch ( kết quả tóm tắc lại thành 11 vòng do em prinrt theo mốc )
 
 Kết quả : 
 Epoch 001 | MSE=743.8687 | w=2.8037 | b=-0.0630
@@ -59,13 +55,11 @@ Epoch 100 | MSE=2.5848 | w=3.4797 | b=1.7168
 
 Kết quả cuối: w ~ 3.4797468185424805  | b ~ 1.7168469429016113
 # Bài tập 4
-Công nghê : Chuyển NumPy → Tensor: torch.from_numpy(), torch.tensor()
+Công nghê : Chuyển NumPy - Tensor: torch.from_numpy()
 
 Cách hoạt động : 
 Tạo mảng NumPy arr
-x = torch.from_numpy(arr) → dùng chung bộ nhớ
-x = torch.tensor(arr) → copy dữ liệu
-
+x = torch.from_numpy(arr) dùng chung bộ nhớ và x = torch.tensor(arr)  copy dữ liệu
 Thay đổi arr[0] = 99 rồi quan sát tensor đổi hay không
 
 Kết quả :
@@ -78,10 +72,7 @@ Công nghệ : Tạo tensor
 Cách hoạt động : 
 Tạo các tensor 
 Đổi shape :
-reshape theo kích thước mình muốn
-reshape giống shape của tensor khác
-
-In kết quả ra màn hình để kiểm tra
+reshape theo kích thước mình muốn ,reshape giống shape của tensor khác không giống với ban đầu rồi In kết quả ra 
 
 Kết quả : 
 empty:
@@ -107,4 +98,5 @@ view(3,4):
 
 view_as(2,6):
  tensor([[ 1,  2,  3,  4,  5,  6],
+
         [ 7,  8,  9, 10, 11, 12]])
